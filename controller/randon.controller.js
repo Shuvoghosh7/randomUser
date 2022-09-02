@@ -1,5 +1,9 @@
+const { loadUser } = require("../jsonData/JsonData");
+
 module.exports.getRandomUser = (req, res, next) => {
-    res.send('get random user')
+    const newData=loadUser();
+    const result=newData[Math.floor(Math.random()*newData.length)]
+    res.send(result)
   };
 
 
