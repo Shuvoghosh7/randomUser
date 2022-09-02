@@ -14,7 +14,7 @@ app.use(express.json());
 
 dbConnect()
 
-app.use("/get/user/random", randomUserRoute);
+app.use("/Get/user", randomUserRoute);
 
 
 app.get('/', (req, res) => {
