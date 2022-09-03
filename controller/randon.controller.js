@@ -30,32 +30,32 @@ module.exports.saveUser = (req, res) => {
 };
 
 module.exports.updateUser = (req, res) => {
-  // const newData = req.body;
-  /* const { id } = req.params;
-  const sss = loadUser()
-  console.log(sss)
-  const newData = sss.find(x => x._id == id);
+  var data = fs.readFileSync("data.json");
+  var myObject = JSON.parse(data);
+  const { id } = req.params;
+  const newData = myObject.find(user => user._id == id);
   newData._id=id;
   newData.name=req.body.name;
-  res.send(newData);  */
+  /* var newData2 = JSON.stringify(newData);
+  fs.writeFile("data.json", newData2, (err) => {
+    // Error checking
+    if (err) throw err;
+    console.log("Delete user Data");
+  }); */
+  res.send(newData)
 
 };
 
 module.exports.deleteUser = (req, res) => {
-  /*   var data = fs.readFileSync("data.json");
-    var myObject = JSON.parse(data);
-    const { id } = req.params;
-    const tools = myObject.filter(tool => tool._id !== Number(id));
-    res.send(tools); */
   var data = fs.readFileSync("data.json");
   var myObject = JSON.parse(data);
   const id = req.params.id
-  const result= myObject.filter(tool => tool._id != id)
+  const result = myObject.filter(tool => tool._id != id)
   var newData2 = JSON.stringify(result);
   fs.writeFile("data.json", newData2, (err) => {
     // Error checking
     if (err) throw err;
-    console.log("New data added");
+    console.log("Delete user Data");
   });
   res.send(newData2)
 }

@@ -16,7 +16,7 @@ router
   .post(viewCount,randomUsers.saveUser)
 router
   .route("/update/:id")
-  .put(viewCount,randomUsers.updateUser)
+  .patch(viewCount,randomUsers.updateUser)
 
 router
   .route("/delete/:id")
