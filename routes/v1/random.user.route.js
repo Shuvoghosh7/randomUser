@@ -15,11 +15,11 @@ router
   .route("/save")
   .post(viewCount,randomUsers.saveUser)
 router
-  .route("/:id")
-  .patch(viewCount,randomUsers.updateUser)
+  .route("/update/:id")
+  .put(viewCount,randomUsers.updateUser)
 
-
-
-
+router
+  .route("/delete/:id")
+  .delete(viewCount,randomUsers.deleteUser)
 
   module.exports = router;

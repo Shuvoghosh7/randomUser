@@ -40,3 +40,22 @@ module.exports.updateUser = (req, res) => {
   res.send(newData);  */
 
 };
+
+module.exports.deleteUser = (req, res) => {
+  /*   var data = fs.readFileSync("data.json");
+    var myObject = JSON.parse(data);
+    const { id } = req.params;
+    const tools = myObject.filter(tool => tool._id !== Number(id));
+    res.send(tools); */
+  var data = fs.readFileSync("data.json");
+  var myObject = JSON.parse(data);
+  const id = req.params.id
+  const result= myObject.filter(tool => tool._id != id)
+  var newData2 = JSON.stringify(result);
+  fs.writeFile("data.json", newData2, (err) => {
+    // Error checking
+    if (err) throw err;
+    console.log("New data added");
+  });
+  res.send(newData2)
+}
