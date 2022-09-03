@@ -36,16 +36,7 @@ module.exports.updateUser = (req, res) => {
   const newData = myObject.find(user => user._id == id);
   newData._id=id;
   newData.name=req.body.name;
-  /* var newData2 = JSON.stringify(newData);
-  fs.writeFile("data.json", newData2, (err) => {
-    // Error checking
-    if (err) throw err;
-    console.log("Delete user Data");
-  }); */
   res.send(newData)
-  
-  
-
 };
 
 module.exports.deleteUser = (req, res) => {
