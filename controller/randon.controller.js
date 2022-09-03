@@ -43,6 +43,8 @@ module.exports.updateUser = (req, res) => {
     console.log("Delete user Data");
   }); */
   res.send(newData)
+  
+  
 
 };
 
