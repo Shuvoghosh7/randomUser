@@ -11,6 +11,13 @@ router
 router
   .route("/all")
   .get(viewCount,randomUsers.getAllUser)
+router
+  .route("/save")
+  .post(viewCount,randomUsers.saveUser)
+router
+  .route("/:id")
+  .patch(viewCount,randomUsers.updateUser)
+
 
 
 
